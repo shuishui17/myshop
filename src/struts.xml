@@ -51,6 +51,11 @@
         	<result name = "editSuccess">/admin/category/edit.jsp</result>
         	<result name = "modifySuccess" type = "redirectAction">category_adminFindAll</result>
         </action>
+        
+        <!-- 配置后台二级列表Action -->
+        <action name = "categorySecond_*" class = "categorySecondAction" method = "{1}">
+        	<result name = "adminFindAllSuccess">/admin/categorySecond/list.jsp</result>
+        </action>
     </package>
 
 

@@ -83,6 +83,9 @@
 	<bean id = "categoryAction" class = "com.shui.shop.category.CategoryAction" scope = "prototype">
 		<property name="categoryService" ref = "categoryService"></property>
 	</bean>
+	<bean id = "categorySecondAction" class = "com.shui.shop.categorysecond.CategorySecondAction" scope = "prototype">
+		<property name="categorySecondService" ref = "categorySecondService"></property>
+	</bean>
 
 	<!-- 配置Service================================ -->
 	<bean id="userService" class="com.shui.shop.user.UserService">
@@ -97,6 +100,10 @@
 	<bean id = "adminUserService" class = "com.shui.shop.adminUser.AdminUserService">
 		<property name="adminUserDao" ref = "adminUserDao"></property>
 	</bean>
+	<bean id = "categorySecondService" class = "com.shui.shop.categorysecond.CategorySecondService">
+		<property name="categorySecondDao" ref = "categorySecondDao"></property>
+	</bean>
+	
 	<!-- 配置Dao================================ -->
 	<bean id="userDao" class="com.shui.shop.user.UserDao">
 		<property name="sessionFactory" ref="sessionFactory" />
@@ -108,6 +115,9 @@
 		<property name="sessionFactory" ref = "sessionFactory"></property>
 	</bean>
 	<bean id = "adminUserDao" class = "com.shui.shop.adminUser.AdminUserDao">
+		<property name="sessionFactory" ref = "sessionFactory"></property>
+	</bean>
+	<bean id = "categorySecondDao" class = "com.shui.shop.categorysecond.CategorySecondDao">
 		<property name="sessionFactory" ref = "sessionFactory"></property>
 	</bean>
 </beans>
