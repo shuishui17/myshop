@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <constant name="struts.devMode" value="false" />
+
+    <package name="default" namespace="/" extends="struts-default">
+    	<global-results>
+    		<result name="msg">/WEB-INF/jsp/msg.jsp</result>
+    		<result name="login">/admin/index.jsp</result>
+    	</global-results>
+    <!-- 配置首页访问的Action -->
+		<action name="index" class="indexAction">
+			<result name="indexSuccess">WEB-INF/jsp/index.jsp</result>
+		</action>
+        <!-- 通配符来配置 -->
+        <action name = "user_*" class = "userAction" method = "{1}">
+        	<result name = "registPageSuccess">WEB-INF/jsp/regist.jsp</result>
+        	<result name = "loginPageSuccess">WEB-INF/jsp/login.jsp</result>
+        	<result name = "loginSuccess" type = "redirectAction">index</result>
+        	<result name="registSuccess">/WEB-INF/jsp/msg.jsp</result>
+        	<result name = "loginInput">/WEB-INF/jsp/login.jsp</result>
+        	<result name = "quitSuccess" type  = "redirectAction">index</result>
+        </action>
+        
+        <!-- 配置商品的Action -->
+        <action name="product_*" class = "productAction" method = "{1}">
+        	<result name = "findByCidSuccess">/WEB-INF/jsp/list.jsp</result>
+        	<result name = "findByPidSuccess">/WEB-INF/jsp/desc.jsp</result>
+        	<result name = "findByCsidSuccess">/WEB-INF/jsp/cslist.jsp</result>
+        </action>
+        
+        <!-- 配置购物车的Action -->
+        <action name="cart_*" class = "cartAction" method = "{1}">
+        	<result name = "addCartSuccess">/WEB-INF/jsp/cart.jsp</result>
+        	<result name = "clearCartSuccess">/WEB-INF/jsp/cart.jsp</result>
+        </action>
+        
+        <!-- 配置后台登录Action -->
+        <action name="adminUser_*" class = "adminUserAction" method = "{1}">
+        	<result name = "loginSuccess" type = "redirect">/admin/home.jsp</result>
+        </action>
+        
+        <!-- 配置后台一级列表Action -->
+        <action name = "category_*" class = "categoryAction" method = "{1}">
+        	<result name = "adminFindAllSuccess">/admin/category/list.jsp</result>
+        	<result name = "saveSuccess" type = "redirectAction">category_adminFindAll</result>
+        	<result name = "deleteSuccess" type = "redirectAction">category_adminFindAll</result>
+        	<result name = "editSuccess">/admin/category/edit.jsp</result>
+        	<result name = "modifySuccess" type = "redirectAction">category_adminFindAll</result>
+        </action>
+    </package>
+
+
+</struts>
