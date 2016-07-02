@@ -85,6 +85,7 @@
 	</bean>
 	<bean id = "categorySecondAction" class = "com.shui.shop.categorysecond.CategorySecondAction" scope = "prototype">
 		<property name="categorySecondService" ref = "categorySecondService"></property>
+		<property name="categoryService" ref = "categoryService"></property>
 	</bean>
 
 	<!-- 配置Service================================ -->

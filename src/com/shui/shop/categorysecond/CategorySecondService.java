@@ -39,4 +39,8 @@ public class CategorySecondService {
 		return pageBean;
 	}
 
+	public void save(CategorySecond categorySecond) {
+		categorySecondDao.save(categorySecond);
+	}
+
 }
