@@ -70,4 +70,38 @@ public class ProductService {
 		return pageBean;
 	}
 
+	/**
+	 * 查询商品(分页)
+	 * @param page
+	 * @return
+	 */
+	public PageBean<Product> findByPage(Integer page) {
+		//封装pageBean
+		PageBean<Product> pageBean = new PageBean<Product>();
+		pageBean.setPage(page);
+		int limit = 10;
+		pageBean.setLimit(limit);
+		int count = productDao.findCount();
+		pageBean.setTotalCount(count);
+		int totalPage = (count + limit - 1)/limit;
+		pageBean.setTotalPage(totalPage);
+		//将每一页的内容放到集合中
+		int begin = (page - 1) * limit;
+		List<Product> list = productDao.findByPage(begin, limit);
+		pageBean.setList(list);
+		return pageBean;
+	}
+
+	public void save(Product product) {
+		productDao.save(product);
+	}
+
+	public void adminDelete(Product product) {
+		productDao.adminDelete(product);
+	}
+
+	public void modify(Product product) {
+		productDao.modify(product);
+	}
+
 }

@@ -68,7 +68,7 @@
 								<span class="subtotal">￥<s:property value = "subtotal"/></span>
 							</td>
 							<td>
-								<a href="javascript:;" class="delete">删除</a>
+								<a href="${ pageContext.request.contextPath }/cart_removeCart.action?pid=<s:property value = "product.pid"/>" class="delete">删除</a>
 							</td>
 						</tr>
 						</s:iterator>
@@ -85,7 +85,7 @@
 				</div>
 				<div class="bottom">
 					<a href="${pageContext.request.contextPath}/cart_clearCart.action" id="clear" class="clear">清空购物车</a>
-					<a href="./会员登录.htm" id="submit" class="submit">提交订单</a>
+					<a href="${pageContext.request.contextPath}/order_saveOreder.action" id="submit" class="submit">提交订单</a>
 				</div>
 				</s:else>
 		</div>

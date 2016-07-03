@@ -43,4 +43,24 @@ public class CategorySecondService {
 		categorySecondDao.save(categorySecond);
 	}
 
+	/**
+	 * 查询二级分类，显示在商品添加界面
+	 * @return
+	 */
+	public List<CategorySecond> findAll() {
+		return categorySecondDao.findAll();
+	}
+
+	public void delete(CategorySecond categorySecond) {
+		categorySecondDao.delete(categorySecond);
+	}
+
+	public CategorySecond findById(Integer csid) {
+		return categorySecondDao.findById(csid);
+	}
+
+	public void modify(CategorySecond categorySecond) {
+		categorySecondDao.modify(categorySecond);
+	}
+
 }

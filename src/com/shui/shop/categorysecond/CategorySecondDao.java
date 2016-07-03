@@ -30,4 +30,20 @@ public class CategorySecondDao extends HibernateDaoSupport{
 	public void save(CategorySecond categorySecond) {
 		this.getHibernateTemplate().save(categorySecond);
 	}
+
+	public List<CategorySecond> findAll() {
+		return this.getHibernateTemplate().find("from CategorySecond");
+	}
+
+	public void delete(CategorySecond categorySecond) {
+		this.getHibernateTemplate().delete(categorySecond);
+	}
+
+	public CategorySecond findById(Integer csid) {
+		return this.getHibernateTemplate().get(CategorySecond.class,csid);
+	}
+
+	public void modify(CategorySecond categorySecond) {
+		this.getHibernateTemplate().update(categorySecond);
+	}
 }

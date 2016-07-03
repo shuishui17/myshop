@@ -3,6 +3,7 @@ package com.shui.shop.product;
 import java.util.List;
 
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.shui.shop.utils.PageHibernateCallback;
 
@@ -54,5 +55,45 @@ public class ProductDao extends HibernateDaoSupport {
 		String hql = "select count(*) from Product p join p.categorySecond cs where cs.csid = ?";
 		List<Long> list = this.getHibernateTemplate().find(hql,csid);
 		return list.get(0).intValue();
+	}
+
+	/**
+	 * 后台：返回商品记录数
+	 * @return
+	 */
+	public int findCount() {
+		String hql = "select count(*) from Product";
+		List<Long> list = this.getHibernateTemplate().find(hql);
+		if(list.size() > 0){
+			return list.get(0).intValue();			
+		}
+		return 0;
+	}
+
+	/**
+	 * 根据页面查询每一页的记录（分页）
+	 * @param begin
+	 * @param limit
+	 * @return
+	 */
+	public List<Product> findByPage(int begin, int limit) {
+		String hql = "from Product";
+		List<Product> list = this.getHibernateTemplate().executeFind(new PageHibernateCallback<Product>(hql, null, begin, limit));
+		if(list.size() > 0){
+			return list;
+		}
+		return null;
+	}
+
+	public void save(Product product) {
+		this.getHibernateTemplate().save(product);
+	}
+
+	public void adminDelete(Product product) {
+		this.getHibernateTemplate().delete(product);
+	}
+
+	public void modify(Product product) {
+		this.getHibernateTemplate().update(product);
 	}
 }

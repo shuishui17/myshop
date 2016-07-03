@@ -29,6 +29,11 @@
 		d.add('010201','0102','商品管理','${pageContext.request.contextPath}/product_adminFindAll.action?page=1','','mainFrame');
 		d.add('0103','01','订单管理','${pageContext.request.contextPath}/login/welcome.jsp','','mainFrame');
 		d.add('010301','0103','订单管理','${pageContext.request.contextPath}/order_adminFindAll.action?page=1','','mainFrame');
+		d.add('010301','0103','查询所有订单','${pageContext.request.contextPath}/order_adminFindAll.action?page=1','','mainFrame');
+		d.add('010302','0103','未付款订单','${pageContext.request.contextPath}/order_adminFindByState.action?page=1&state=1','','mainFrame');
+		d.add('010303','0103','已付款订单','${pageContext.request.contextPath}/order_adminFindByState.action?page=1&state=2','','mainFrame');
+		d.add('010304','0103','已发货订单','${pageContext.request.contextPath}/order_adminFindByState.action?page=1&state=3','','mainFrame');
+		d.add('010305','0103','已完成订单','${pageContext.request.contextPath}/order_adminFindByState.action?page=1&state=4','','mainFrame');
 		d.add('0104','01','一级分类管理','${pageContext.request.contextPath}/login/welcome.jsp','','mainFrame');
 		d.add('010401','0104','一级分类管理','${pageContext.request.contextPath}/category_adminFindAll.action','','mainFrame');
 		d.add('0105','01','二级分类管理','${pageContext.request.contextPath}/login/welcome.jsp','','mainFrame');

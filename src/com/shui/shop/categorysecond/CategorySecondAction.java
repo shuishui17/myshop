@@ -71,4 +71,31 @@ public class CategorySecondAction extends ActionSupport implements ModelDriven<C
 		categorySecondService.save(categorySecond);
 		return "saveSuccess";
 	}
+	/**
+	 * 后台：删除操作
+	 */
+	public String delete(){
+		categorySecondService.delete(categorySecond);
+		return "deleteSuccess";
+	}
+	
+	/**
+	 * 后台：跳转到修改页面
+	 */
+	public String edit(){
+		//查询商品
+		categorySecond = categorySecondService.findById(categorySecond.getCsid());
+		//查询一级分类
+		List<Category> cList = categoryService.findAll();
+		ActionContext.getContext().getValueStack().set("cList",cList);
+		return "editSuccess";
+	}
+	
+	/**
+	 * 后台：修改页面
+	 */
+	public String modify(){
+		categorySecondService.modify(categorySecond);
+		return "modifySuccess";
+	}
 }

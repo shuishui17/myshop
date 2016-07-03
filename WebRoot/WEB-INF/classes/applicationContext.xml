@@ -46,6 +46,8 @@
 				<value>com/shui/shop/product/Product.hbm.xml</value>
 				<value>com/shui/shop/categorysecond/Categorysecond.hbm.xml</value>
 				<value>com/shui/shop/adminUser/AdminUser.hbm.xml</value>
+				<value>com/shui/shop/order/Order.hbm.xml</value>
+				<value>com/shui/shop/order/OrderItem.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -73,6 +75,7 @@
 	<bean id = "productAction" class="com.shui.shop.product.ProductAction" scope = "prototype">
 		<property name="categoryService" ref = "categoryService"></property>
 		<property name="productService" ref = "productService"></property>
+		<property name="categorySecondService" ref = "categorySecondService"></property>
 	</bean>
 	<bean id="cartAction" class="com.shui.shop.cart.CartAction" scope="prototype">
 		<property name="productService" ref="productService" />
@@ -86,6 +89,9 @@
 	<bean id = "categorySecondAction" class = "com.shui.shop.categorysecond.CategorySecondAction" scope = "prototype">
 		<property name="categorySecondService" ref = "categorySecondService"></property>
 		<property name="categoryService" ref = "categoryService"></property>
+	</bean>
+	<bean id = "orderAction" class = "com.shui.shop.order.OrderAction">
+		<property name="orderService" ref = "orderService"></property>
 	</bean>
 
 	<!-- 配置Service================================ -->
@@ -104,6 +110,9 @@
 	<bean id = "categorySecondService" class = "com.shui.shop.categorysecond.CategorySecondService">
 		<property name="categorySecondDao" ref = "categorySecondDao"></property>
 	</bean>
+	<bean id = "orderService" class = "com.shui.shop.order.OrderService">
+		<property name="orderDao" ref = "orderDao"></property>
+	</bean>
 	
 	<!-- 配置Dao================================ -->
 	<bean id="userDao" class="com.shui.shop.user.UserDao">
@@ -119,6 +128,9 @@
 		<property name="sessionFactory" ref = "sessionFactory"></property>
 	</bean>
 	<bean id = "categorySecondDao" class = "com.shui.shop.categorysecond.CategorySecondDao">
+		<property name="sessionFactory" ref = "sessionFactory"></property>
+	</bean>
+	<bean id = "orderDao" class = "com.shui.shop.order.OrderDao">
 		<property name="sessionFactory" ref = "sessionFactory"></property>
 	</bean>
 </beans>

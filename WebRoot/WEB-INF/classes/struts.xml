@@ -23,6 +23,11 @@
         	<result name="registSuccess">/WEB-INF/jsp/msg.jsp</result>
         	<result name = "loginInput">/WEB-INF/jsp/login.jsp</result>
         	<result name = "quitSuccess" type  = "redirectAction">index</result>
+        	<result name = "adminFindAllSuccess">admin/user/list.jsp</result>
+        	<result name = "saveSuccess" type = "redirectAction">user_adminFindAll?page=1</result>
+        	<result name = "deleteSuccess" type = "redirectAction">user_adminFindAll?page=1</result>
+        	<result name = "editSuccess">admin/user/edit.jsp</result>
+        	<result name = "modifySuccess" type = "redirectAction">user_adminFindAll?page=1</result>
         </action>
         
         <!-- 配置商品的Action -->
@@ -30,12 +35,20 @@
         	<result name = "findByCidSuccess">/WEB-INF/jsp/list.jsp</result>
         	<result name = "findByPidSuccess">/WEB-INF/jsp/desc.jsp</result>
         	<result name = "findByCsidSuccess">/WEB-INF/jsp/cslist.jsp</result>
+        	<result name = "adminFindAllSuccess">/admin/product/list.jsp</result>
+        	<result name = "addPageSuccess">/admin/product/add.jsp</result>
+        	<result name = "saveSuccess" type = "redirectAction">product_adminFindAll?page=1</result>
+        	<result name = "adminDeleteSuccess" type = "redirectAction">product_adminFindAll?page=1</result>
+        	<result name = "editSuccess">/admin/product/edit.jsp</result>
+        	<result name = "modifySuccess" type = "redirectAction">product_adminFindAll?page=1</result>
+        	
         </action>
         
         <!-- 配置购物车的Action -->
         <action name="cart_*" class = "cartAction" method = "{1}">
         	<result name = "addCartSuccess">/WEB-INF/jsp/cart.jsp</result>
         	<result name = "clearCartSuccess">/WEB-INF/jsp/cart.jsp</result>
+        	<result name = "removeCartSuccess">/WEB-INF/jsp/cart.jsp</result>
         </action>
         
         <!-- 配置后台登录Action -->
@@ -57,6 +70,16 @@
         	<result name = "adminFindAllSuccess">/admin/categorySecond/list.jsp</result>
         	<result name = "addPageSuccess">/admin/categorySecond/add.jsp</result>
         	<result name = "saveSuccess" type = "redirectAction">categorySecond_adminFindAll?page=1</result>
+        	<result name = "deleteSuccess" type = "redirectAction">categorySecond_adminFindAll?page=1</result>
+        	<result name = "editSuccess">/admin/categorySecond/edit.jsp</result>
+        	<result name = "modifySuccess" type = "redirectAction">categorySecond_adminFindAll?page=1</result>
+        </action>
+        
+        <!-- 配置订单action -->
+        <action name = "order_*" class = "orderAction" method = "{1}">
+        	<result name = "saveSuccess">/WEB-INF/jsp/order.jsp</result>
+        	<result name = "adminFindAllSuccess">/admin/order/list.jsp</result>
+        	<result name = "adminFindByStateSuccess">/admin/order/list.jsp</result>
         </action>
     </package>
 
