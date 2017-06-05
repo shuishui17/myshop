@@ -78,12 +78,12 @@ public class ProductService {
 	public PageBean<Product> findByPage(Integer page) {
 		//封装pageBean
 		PageBean<Product> pageBean = new PageBean<Product>();
-		pageBean.setPage(page);
-		int limit = 10;
+		pageBean.setPage(page);//设置页码
+		int limit = 10;//设置每页记录数
 		pageBean.setLimit(limit);
-		int count = productDao.findCount();
+		int count = productDao.findCount();//设置总的记录数
 		pageBean.setTotalCount(count);
-		int totalPage = (count + limit - 1)/limit;
+		int totalPage = (count + limit - 1)/limit;//总的页码
 		pageBean.setTotalPage(totalPage);
 		//将每一页的内容放到集合中
 		int begin = (page - 1) * limit;
